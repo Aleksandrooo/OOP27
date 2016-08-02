@@ -1,5 +1,7 @@
 package lesson6;
 
+import java.util.ArrayList;
+
 public class Firm {
 
 	/*
@@ -21,5 +23,9 @@ public class Firm {
 	4*. Написать консольное меню для управления фирмой, пункты меню соответствует функционалу самой фирмы. */
 	
 	String firmName;
+	String firmAdress;
+	double firmSum;
+	ArrayList<String> Employee = new ArrayList<String>(); 
+	
 	
 }
