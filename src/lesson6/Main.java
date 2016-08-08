@@ -1,5 +1,7 @@
 package lesson6;
 
+import lesson7.Number;
+
 public class Main {
 
 	public static void main(String[] args) {

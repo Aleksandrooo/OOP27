@@ -1,4 +1,4 @@
-package lesson6;
+package lesson7;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class Firm {
 	String firmName;
 	String firmAdress;
 	double firmSum;
-	ArrayList<Employee>  employees = new ArrayList<Employee>(); 
+	ArrayList<Employee>  employees = new ArrayList<Employee>();
 	
 	public Firm(String firmName, String firmAdress, double firmSum, ArrayList<Employee>  employees){
 		this.firmName = firmName;
@@ -36,6 +36,10 @@ public class Firm {
 	public boolean addEmployee(String name, String surname, int salarySum, long personalCardAccount, String gender, String department){
 		Employee emp = new Employee(name, surname, salarySum, personalCardAccount, gender, department);
 		boolean added = false;
+
+//		for(Employee e : employees){
+//
+//		}
 		for( int i = 0; i < employees.size(); i++){
 			if((!(employees.get(i).surname.equals(surname))) | (!(employees.get(i).name.equals(name)))  ){
 				added = true;
@@ -61,7 +65,8 @@ public class Firm {
 	}
 	
 	public ArrayList<Employee> getAllEmployees(){
-		return employees;
+
+		return new ArrayList<Employee>(employees);
 	}
 	
 	public ArrayList<Employee> getAllEmployeesOrderedBySalary(){
@@ -91,6 +96,7 @@ public class Firm {
 //		tmp = new Employee(array.get(i));
 //		array.get(i) = array.get(j);
 //		array.get(j) = tmp;
+
 	}
 	
 }

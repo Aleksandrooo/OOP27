@@ -1,4 +1,4 @@
-package lesson6;
+package lesson7;
 
 public class Employee {
 	//У каждого сотрудника (Employee) есть имя, фамилия, ставка зарплаты (сумма), его личный карточный счет (сумма), пол, отдел.

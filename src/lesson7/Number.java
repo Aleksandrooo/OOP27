@@ -1,4 +1,4 @@
-package lesson6;
+package lesson7;
 
 public class Number {
 //	  Написать класс число (Number), хранящий целое число и выполняющий следующие операции:
@@ -13,7 +13,11 @@ public class Number {
 	int number;
 	
 	public Number(int value){
+
 		this.number = value;
+	}
+	public Number(){
+
 	}
 	
 	public int get(){
@@ -21,9 +25,9 @@ public class Number {
 	}
 	
 	public Number add(Number num){
-		Number  value = null ;
-		value.number = number + num.get();
-		return value;
+		//Number  value = null ;
+		//value.number = number + num.get();
+		return new Number(this.number + num.number);
 	}
 	
 //	public Number sub(Number num){
