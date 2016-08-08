@@ -88,9 +88,9 @@ public class Firm {
 	
 	public static void swap(ArrayList<Employee> array, int i , int j){
 		Employee tmp;
-		tmp = new Employee(array.get(i));
-		array.get(i) = array.get(j);
-		array.get(j) = tmp;
+//		tmp = new Employee(array.get(i));
+//		array.get(i) = array.get(j);
+//		array.get(j) = tmp;
 	}
 	
 }
