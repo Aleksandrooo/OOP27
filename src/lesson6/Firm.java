@@ -25,7 +25,72 @@ public class Firm {
 	String firmName;
 	String firmAdress;
 	double firmSum;
-	ArrayList<String> Employee = new ArrayList<String>(); 
+	ArrayList<Employee>  employees = new ArrayList<Employee>(); 
 	
+	public Firm(String firmName, String firmAdress, double firmSum, ArrayList<Employee>  employees){
+		this.firmName = firmName;
+		this.firmAdress = firmAdress;
+		this.firmSum = firmSum;
+	}
+	
+	public boolean addEmployee(String name, String surname, int salarySum, long personalCardAccount, String gender, String department){
+		Employee emp = new Employee(name, surname, salarySum, personalCardAccount, gender, department);
+		boolean added = false;
+		for( int i = 0; i < employees.size(); i++){
+			if((!(employees.get(i).surname.equals(surname))) | (!(employees.get(i).name.equals(name)))  ){
+				added = true;
+				break;
+			}
+		}
+		if(!added){
+			employees.add(emp);
+		}
+		return !added;
+	}
+	
+	public boolean dismissEmployee(String name, String surname){
+		boolean dismissed = false;
+		for( int i = 0; i < employees.size(); i++){
+			if((employees.get(i).surname.equals(surname)) & (employees.get(i).name.equals(name))  ){
+				employees.remove(i);
+				dismissed = true;
+				break;
+			}
+		}
+		return dismissed;
+	}
+	
+	public ArrayList<Employee> getAllEmployees(){
+		return employees;
+	}
+	
+	public ArrayList<Employee> getAllEmployeesOrderedBySalary(){
+		ArrayList<Employee> employeesSort = new ArrayList<Employee>();
+//		for( int i = 0; i < employees.size(); i++){
+//			
+//		}
+		employeesSort = employees;
+		selectionSort(employeesSort);
+		return employeesSort;
+	}
+	
+	public static void selectionSort(ArrayList<Employee> array){
+		for(int i = 0; i< array.size() -1; i++){
+			int minIndex =i;
+			for(int j = i+ 1; j< array.size();j++){
+				if ( array.get(j).salarySum < array.get(minIndex).salarySum){
+					minIndex = j;
+				}
+			}
+			swap(array, i, minIndex);
+		}
+	}
+	
+	public static void swap(ArrayList<Employee> array, int i , int j){
+		Employee tmp;
+		tmp = new Employee(array.get(i));
+		array.get(i) = array.get(j);
+		array.get(j) = tmp;
+	}
 	
 }
