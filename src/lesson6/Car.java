@@ -1,12 +1,12 @@
 package lesson6;
 
 public class Car {
-	public String model;
-	public double fuelConsumption;
-	public int mileage;
-	public int maxTankVolume;
-	public double currentFuel;
-	boolean SwitchOn;
+	private String model;
+	private double fuelConsumption;
+	private int mileage;
+	private int maxTankVolume;
+	private double currentFuel;
+	private boolean SwitchOn;
 	
 	public Car(String model, double fuelConsumption, int maxTankVolume){
 		if(model != null){
@@ -15,12 +15,29 @@ public class Car {
 			this.maxTankVolume = maxTankVolume;
 		}
 	}
-	
+
+	public double getCurrentFuel(){
+		return  currentFuel;
+	}
+
+	public void setModel(String model){
+		this.model = model;
+	}
+
+	public String getModel(){
+		return model;
+	}
+
+	public int getMileage(){
+		return mileage;
+	}
+
 	public void driveTo(double distanceInKM){
 		if(SwitchOn == true){
 			if(currentFuel >= distanceInKM/fuelConsumption){
 				currentFuel = currentFuel - distanceInKM/fuelConsumption;
 				mileage += distanceInKM;
+				System.out.println(" Я  еду !");
 			} else {
 				currentFuel = 0;
 				mileage += currentFuel/fuelConsumption;

@@ -22,15 +22,19 @@ public class Firm {
 
 	4*. Написать консольное меню для управления фирмой, пункты меню соответствует функционалу самой фирмы. */
 	
-	String firmName;
-	String firmAdress;
-	double firmSum;
-	ArrayList<Employee>  employees = new ArrayList<Employee>();
+	private String firmName;
+	private String firmAdress;
+	private double firmSum;
+	private ArrayList<Employee>  employees = new ArrayList<Employee>();
 	
 	public Firm(String firmName, String firmAdress, double firmSum, ArrayList<Employee>  employees){
 		this.firmName = firmName;
 		this.firmAdress = firmAdress;
 		this.firmSum = firmSum;
+	}
+
+	public String getFirmName(){
+		return firmName;
 	}
 	
 	public boolean addEmployee(String name, String surname, int salarySum, long personalCardAccount, String gender, String department){
