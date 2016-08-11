@@ -12,8 +12,8 @@ public class Department {
 //		- Менеджер отдела
 
     String departmentName;
-    ArrayList<Employee> employeesList;
-    Manager managerOfDepartment;
+//    ArrayList<Employee> employeesList;
+//    Manager managerOfDepartment;
 
     public Department( String departmentName){
         this.departmentName = departmentName;

@@ -3,71 +3,70 @@ package lesson7;
 import java.util.ArrayList;
 
 public class Firm {
-
-	/*
-	3. Написать класс фирма (Firm), содержащий имя, адрес, зарплатный счет (сумма), список сотрудников.
+	/*	3. Написать класс фирма (Firm), содержащий имя, адрес, зарплатный счет (сумма), список сотрудников.
 	У каждого сотрудника (Employee) есть имя, фамилия, ставка зарплаты (сумма), его личный карточный счет (сумма), пол, отдел.
-
-	Класс фирма должен выполнять следующие функции:
-
+Класс фирма должен выполнять следующие функции:
 	- Добавить сотрудника (метод boolean addEmployee(Employee employee))
-
 	- Уволить сотрудника по имени и фамилии (метод boolean fireEmployee(String name, String surname))
-
 	- Получить список всех сотрудников фирмы (метод ArrayList<Employee> getAllEmployees())
-
 	- Получить список всех сотрудников фирмы отсортированных по зарплате (метод ArrayList<Employee> getAllEmployeesOrderedBySalary())
-
 	- Выдать всем сотрудникам зарплату (перевести на карточный счет каждого сотрудника, сумму равную зарплате сотрудника с главного счета фирмы, если на счету фирмы не хватает средств - выдать сколько хватит =)) (метод void giveSalaryForAll())
-
 	4*. Написать консольное меню для управления фирмой, пункты меню соответствует функционалу самой фирмы. */
 	
 	private String firmName;
 	private String firmAdress;
 	private double firmSum;
-	private ArrayList<Employee>  employees = new ArrayList<Employee>();
-	private ArrayList<Department>  department = new ArrayList<Department>();
+	private ArrayList<Employee>  employees;
+	public ArrayList<Department>  department;
 	
 	public Firm(String firmName, String firmAdress, double firmSum){
 		this.firmName = firmName;
 		this.firmAdress = firmAdress;
 		this.firmSum = firmSum;
+		this.department = new ArrayList<Department>();
 	}
 
 	public String getFirmName(){
 		return firmName;
 	}
-	
-	public boolean addEmployee(String name, String surname, int salarySum, long personalCardAccount, String gender, String department){
-		Employee emp = new Employee(name, surname, salarySum, personalCardAccount, gender, department);
-		boolean added = false;
 
-//		for(Employee e : employees){
+	public boolean addDepartment(Department department){
+		if(this.department.size() != -1){
+			for (Department d : this.department ) {
+				if (d.departmentName.equals(department.departmentName)) {
+					return false;
+				}
+			}
+		}
+		this.department.add(department);
+		return true;
+
+	}
+//	public boolean addEmployee(String name, String surname, int salarySum, long personalCardAccount, String gender,
+//							   String department){
+	public boolean addEmployee(Employee employee){
+		for(Employee e : employees){
+				if((e.surname.equals(employee.surname)) && (e.name.equals(employee.name))){
+					return false;
+				}
+		}
+			employees.add(employee);
+			return true;
+	}
+
+//	public boolean fireEmployee(String name, String surname, String patronymic){
 //
-//		}
-		for( int i = 0; i < employees.size(); i++){
-			if((!(employees.get(i).surname.equals(surname))) | (!(employees.get(i).name.equals(name)))  ){
-				added = true;
-				break;
-			}
-		}
-		if(!added){
-			employees.add(emp);
-		}
-		return !added;
-	}
-	
-	public boolean dismissEmployee(String name, String surname){
-		boolean dismissed = false;
-		for( int i = 0; i < employees.size(); i++){
-			if((employees.get(i).surname.equals(surname)) & (employees.get(i).name.equals(name))  ){
-				employees.remove(i);
-				dismissed = true;
-				break;
-			}
-		}
-		return dismissed;
-	}
+//
+////		boolean dismissed = false;
+////		for( int i = 0; i < employees.size(); i++){
+////			if((employees.get(i).surname.equals(surname)) & (employees.get(i).name.equals(name))  ){
+////				employees.remove(i);
+////				dismissed = true;
+////				break;
+////			}
+////		}
+////		return dismissed;
+//	}
 	
 	public ArrayList<Employee> getAllEmployees(){
 
@@ -103,7 +102,13 @@ public class Firm {
 //		array.get(j) = tmp;
 
 	}
-	
+	public void printFirm (){
+		System.out.println("Фирма: " + firmName  + " адрес - " + firmAdress + " " + firmSum);
+		for (Department d: department ) {
+			System.out.println("Отдел: " + d.departmentName);
+		}
+		//System.out.println("Отдел: " + department.toString());
+	}
 }
 
 /*

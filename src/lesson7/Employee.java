@@ -5,7 +5,7 @@ public class Employee {
 	//Обычный сотрудник:  - Фамилия - Имя	- Отчество	- Пол	- Ставка зарплаты	- Зарплатный счет	- Отдел
 	String surname;
 	String name;
-	String middleName;
+	String patronymic;
 	String gender;
 	int salarySum;
 	long personalCardAccount;

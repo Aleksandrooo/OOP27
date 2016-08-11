@@ -22,5 +22,10 @@ public class Main {
         //consolMenu();
     	Firm firm1 = new Firm("SoftwareFirm", "Kyiv", 12000.0);
 
+        firm1.addDepartment(new Department ("dev"));
+        firm1.addDepartment(new Department ("QA"));
+        firm1.addDepartment(new Department ("BA"));
+        firm1.printFirm();
+
     }
 }
