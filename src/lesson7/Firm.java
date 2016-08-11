@@ -26,8 +26,9 @@ public class Firm {
 	private String firmAdress;
 	private double firmSum;
 	private ArrayList<Employee>  employees = new ArrayList<Employee>();
+	private ArrayList<Department>  department = new ArrayList<Department>();
 	
-	public Firm(String firmName, String firmAdress, double firmSum, ArrayList<Employee>  employees){
+	public Firm(String firmName, String firmAdress, double firmSum){
 		this.firmName = firmName;
 		this.firmAdress = firmAdress;
 		this.firmSum = firmSum;
@@ -107,12 +108,13 @@ public class Firm {
 
 /*
 [16:54:26] Stefan It-Centre: Домашка
-		[16:54:28] Stefan It-Centre:  класс фирма (Firm), содержащий имя, адрес, главный счет (сумма), список отрудников, список отделов.
+		[16:54:28] Stefan It-Centre:  
+		класс фирма (Firm), содержащий имя, адрес, главный счет (сумма), список отрудников, список отделов.
 
 		На фирме должны работать следующие сотрудники:
 		Employee, Manager, SalesManager
 
-		Обычный сотрудник:
+		Обычный сотрудник: 
 		- Фамилия
 		- Имя
 		- Отчество

@@ -13,7 +13,7 @@ public class Department {
 
     String departmentName;
     ArrayList<Employee> employeesList;
-    Employee managerOfDepartment;
+    Manager managerOfDepartment;
 
     public Department( String departmentName){
         this.departmentName = departmentName;

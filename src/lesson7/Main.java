@@ -1,5 +1,6 @@
 package lesson7;
 
+
 //import lesson7.Number;
 /**
  * Created by Admin on 08.08.2016.
@@ -19,7 +20,7 @@ public class Main {
 //        System.out.println(f);
 
         //consolMenu();
-
+    	Firm firm1 = new Firm("SoftwareFirm", "Kyiv", 12000.0);
 
     }
 }
