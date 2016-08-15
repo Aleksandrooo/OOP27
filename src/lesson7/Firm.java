@@ -46,7 +46,7 @@ public class Firm {
 //							   String department){
 	public boolean addEmployee(Employee employee){
 		for(Employee e : employees){
-				if((e.surname.equals(employee.surname)) && (e.name.equals(employee.name))){
+				if((e.surname.equals(employee.surname)) && (e.name.equals(employee.name)) && (e.patronymic.equals(employee.patronymic))){
 					return false;
 				}
 		}
@@ -54,19 +54,16 @@ public class Firm {
 			return true;
 	}
 
-//	public boolean fireEmployee(String name, String surname, String patronymic){
-//
-//
-////		boolean dismissed = false;
-////		for( int i = 0; i < employees.size(); i++){
-////			if((employees.get(i).surname.equals(surname)) & (employees.get(i).name.equals(name))  ){
-////				employees.remove(i);
-////				dismissed = true;
-////				break;
-////			}
-////		}
-////		return dismissed;
-//	}
+	public boolean fireEmployee(String surname, String name, String patronymic){
+		for(Employee e : employees){
+			if((e.surname.equals(surname)) && (e.name.equals(name)) && (e.patronymic.equals(patronymic))){
+				employees.remove(e);
+				return true;
+			}
+		}
+		System.out.println("Сотрудник не найден");
+		return false;
+	}
 	
 	public ArrayList<Employee> getAllEmployees(){
 
@@ -160,7 +157,8 @@ public class Firm {
 		(метод ArrayList<Employee> getEmployeesFromDepSortedBySName(String departmentName))
 		-------------------------------------------------------
 		- всем продавцам продать на сумму 10000, (метод void sellFor10())
-		- Выдать всем сотрудникам зарплату (перевести на карточный счет каждого сотрудника, сумму равную зарплате сотрудника с главного счета фирмы, если на счету фирмы не хватает средств - выдать сколько хватит =)) (метод void giveSalaryForAll())
+		- Выдать всем сотрудникам зарплату (перевести на карточный счет каждого сотрудника, сумму равную зарплате сотрудника 
+		с главного счета фирмы, если на счету фирмы не хватает средств - выдать сколько хватит =)) (метод void giveSalaryForAll())
 		-------------------------------------------------------
 		-* нанять сотрудника, снять с зарплаты сотрудников отдела зарплату для новичка
 		-* после любой изменяющей операции сохранять фирму в файл

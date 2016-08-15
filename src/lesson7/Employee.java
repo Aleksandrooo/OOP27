@@ -11,14 +11,14 @@ public class Employee {
 	long personalCardAccount;
 	String department;
 	
-	public Employee(String name, String surname, int salarySum, long personalCardAccount, String gender, String department){
-		if((name.length() != 0) &  (surname.length() != 0)){
-			this.name = name;
+	public Employee(String surname, String name, String patronymic, int salarySum, long personalCardAccount, String gender, String department){
+		if((name.length() != 0) &  (surname.length() != 0) & (patronymic.length() != 0)){
 			this.surname = surname;
+			this.name = name;
+			this.patronymic = patronymic;
 			this.salarySum = salarySum;
 			this.personalCardAccount = personalCardAccount;
 			this.gender = gender;
-			this.surname = surname;
 			this.department = department;
 		}
 	}
