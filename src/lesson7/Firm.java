@@ -50,7 +50,8 @@ public class Firm {
 					return false;
 				}
 		}
-			employees.add(employee);
+		employees.add(employee);
+		employee.department.employeesList.add(employee);
 			return true;
 	}
 

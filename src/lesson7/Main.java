@@ -21,10 +21,17 @@ public class Main {
 
         //consolMenu();
     	Firm firm1 = new Firm("SoftwareFirm", "Kyiv", 12000.0);
+        Department dev  = new Department ("dev");
 
-        firm1.addDepartment(new Department ("dev"));
+        firm1.addDepartment(dev);
         firm1.addDepartment(new Department ("QA"));
         firm1.addDepartment(new Department ("BA"));
+
+        firm1.addEmployee(new Employee("Petrenko", "Sasha", "Andreevich", 2000, 0, "male", dev));
+        firm1.addEmployee(new Employee("Petrenchuk", "Sasha", "Andreevich", 2200, 0, "male", dev));
+        firm1.addEmployee(new Employee("Petrenko", "Anna", "Andreevna", 1800, 0, "female", dev));
+//        firm1.addManager(new Employee("Alexeychenko", "Alex", "Alexovich", 3200, 0, "male", dev));
+//        firm1.addSallesManager(new Employee("Sahno", "Alla", "Andreevna", 2100, 0, "female", dev));
         firm1.printFirm();
 
     }

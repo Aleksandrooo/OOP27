@@ -7,7 +7,7 @@ public class SalesManager extends Employee{
 
     int selling;
 
-    public SalesManager(String surname, String name, String patronymic, int salarySum, long personalCardAccount, String gender, String department, int selling) {
+    public SalesManager(String surname, String name, String patronymic, int salarySum, long personalCardAccount, String gender, Department department, int selling) {
         super(surname, name, patronymic, salarySum, personalCardAccount, gender, department);
         
         this.selling = selling;

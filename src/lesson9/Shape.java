@@ -14,7 +14,7 @@ public class Shape {
     }
 
     public  String toString(){
-      return System.out.println("Str");
+      return String.format("Area: %5.2f  Perim: %5.2f", area(), perim());
 
     }
 }

@@ -9,9 +9,11 @@ public class Employee {
 	String gender;
 	int salarySum;
 	long personalCardAccount;
-	String department;
+	//String department;
+	Department department;
 	
-	public Employee(String surname, String name, String patronymic, int salarySum, long personalCardAccount, String gender, String department){
+	public Employee(String surname, String name, String patronymic, int salarySum, long personalCardAccount,
+					String gender, Department department){
 		if((name.length() != 0) &  (surname.length() != 0) & (patronymic.length() != 0)){
 			this.surname = surname;
 			this.name = name;
@@ -21,6 +23,10 @@ public class Employee {
 			this.gender = gender;
 			this.department = department;
 		}
+	}
+
+	public void takeSalary(){
+		personalCardAccount += salarySum;
 	}
 	
 
