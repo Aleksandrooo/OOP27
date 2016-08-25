@@ -12,17 +12,18 @@ public class Firm {
 	- Получить список всех сотрудников фирмы отсортированных по зарплате (метод ArrayList<Employee> getAllEmployeesOrderedBySalary())
 	- Выдать всем сотрудникам зарплату (перевести на карточный счет каждого сотрудника, сумму равную зарплате сотрудника с главного счета фирмы, если на счету фирмы не хватает средств - выдать сколько хватит =)) (метод void giveSalaryForAll())
 	4*. Написать консольное меню для управления фирмой, пункты меню соответствует функционалу самой фирмы. */
-	
-	private String firmName;
-	private String firmAdress;
-	private double firmSum;
-	private ArrayList<Employee>  employees;
+
+	public String firmName;
+	public String firmAdress;
+	public double firmSum;
+	public ArrayList<Employee>  employees;
 	public ArrayList<Department>  department;
 	
 	public Firm(String firmName, String firmAdress, double firmSum){
 		this.firmName = firmName;
 		this.firmAdress = firmAdress;
 		this.firmSum = firmSum;
+		this.employees = new ArrayList<Employee>();
 		this.department = new ArrayList<Department>();
 	}
 
@@ -45,27 +46,45 @@ public class Firm {
 //	public boolean addEmployee(String name, String surname, int salarySum, long personalCardAccount, String gender,
 //							   String department){
 	public boolean addEmployee(Employee employee){
-		for(Employee e : employees){
-				if((e.surname.equals(employee.surname)) && (e.name.equals(employee.name)) && (e.patronymic.equals(employee.patronymic))){
+		if(employees.isEmpty()){
+			if(findEmployee(employees, employee)){
 					return false;
-				}
+			}
 		}
 		employees.add(employee);
 		employee.department.employeesList.add(employee);
-			return true;
+		return true;
 	}
 
 	public boolean fireEmployee(String surname, String name, String patronymic){
 		for(Employee e : employees){
 			if((e.surname.equals(surname)) && (e.name.equals(name)) && (e.patronymic.equals(patronymic))){
 				employees.remove(e);
+				e.department.employeesList.remove(e);
 				return true;
 			}
 		}
-		System.out.println("Сотрудник не найден");
+		System.out.println(surname + name + patronymic + " - такой сотрудник не найден");
 		return false;
 	}
-	
+
+	public boolean findEmployee(ArrayList<Employee> employees, Employee emp ){
+		return findEmployee(employees, emp.surname, emp.name, emp.patronymic);
+	}
+	public boolean findEmployee(ArrayList<Employee> employees, String surname, String name, String patronymic ){
+		for(Employee e : employees) {
+			if ((e.surname.equals(surname)) && (e.name.equals(name)) && (e.patronymic.equals(patronymic))) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean setDepartmentForEmployee(String name, String surname, String patronymic, String departmentName){
+		return false;
+	}
+
+
 	public ArrayList<Employee> getAllEmployees(){
 
 		return new ArrayList<Employee>(employees);
@@ -105,7 +124,9 @@ public class Firm {
 		for (Department d: department ) {
 			System.out.println("Отдел: " + d.departmentName);
 		}
-		//System.out.println("Отдел: " + department.toString());
+		for(Employee e: employees){
+			System.out.printf("Сотрудник: %s  %s %s \n\r" ,e.surname, e.name, e.patronymic);
+		}
 	}
 }
 

@@ -13,10 +13,12 @@ public class Department {
 
     String departmentName;
     ArrayList<Employee> employeesList;
-//    Manager managerOfDepartment;
+    Manager managerOfDepartment;
 
     public Department( String departmentName){
         this.departmentName = departmentName;
+		this.employeesList = new ArrayList<Employee>();
+		//this.managerOfDepartment = new Manager();
     }
     
     public boolean addEmployee(Employee employee){
