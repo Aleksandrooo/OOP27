@@ -1,6 +1,7 @@
 package lesson7;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Firm {
 	/*	3. Написать класс фирма (Firm), содержащий имя, адрес, зарплатный счет (сумма), список сотрудников.
@@ -97,6 +98,12 @@ public class Firm {
 //		}
 		employeesSort = employees;
 		selectionSort(employeesSort);
+		return employeesSort;
+	}
+
+	public ArrayList<Employee> getAllEmployeesOrderedByName(){
+		ArrayList<Employee> employeesSort = new ArrayList<Employee>(employees);
+		Collections.sort(employeesSort, Employee.BY_NAME);
 		return employeesSort;
 	}
 	
