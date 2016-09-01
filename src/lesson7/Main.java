@@ -30,7 +30,7 @@ public class Main {
         firm1.addDepartment(new Department ("QA"));
         firm1.addDepartment(new Department ("BA"));
 
-        Employee emp = new Employee("Petrenko", "Sasha", "Andreevich", 2000, 0, "male", dev);
+        Employee emp = new Employee("Petrenko", "Serg", "Andreevich", 2000, 0, "male", dev);
 
         firm1.addEmployee(emp);
         firm1.addEmployee(new Employee("Petrenchuk", "Sasha", "Andreevich", 2200, 0, "male", dev));
@@ -38,8 +38,8 @@ public class Main {
 //        firm1.addManager(new Employee("Alexeychenko", "Alex", "Alexovich", 3200, 0, "male", dev));
 //        firm1.addSallesManager(new Employee("Sahno", "Alla", "Andreevna", 2100, 0, "female", dev));
 
-        firm1.fireEmployee("Petrenkoва", "Anna", "Andreevna");
-        firm1.fireEmployee("Petrenchuk", "Sasha", "Andreevich");
+      //  firm1.fireEmployee("Petrenkoва", "Anna", "Andreevna");
+     //   firm1.fireEmployee("Petrenchuk", "Sasha", "Andreevich");
 
 
         menu(firm1);
@@ -55,7 +55,7 @@ public class Main {
             System.out.println("Введите номер меню ");
             System.out.println("1. Добавить новый  отдел");
             System.out.println("2. Добавить нового  сотрудника");
-            System.out.println("3. Добавить удалить сотрудкника");
+            System.out.println("3. Добавить удалить сотрудника");
             System.out.println("4. Перевети сотрудкника в другой отдел");
             System.out.println("5. Выдать всем зарплату");
             System.out.println("6. Получить список всех сотрудников");
@@ -67,6 +67,9 @@ public class Main {
                 switch (i){
                     case 1:
                         addNewDepartment(firm1);
+                        break;
+                    case 6:
+                        System.out.println(firm1.getAllEmployeesOrderedByName());
                         break;
                     case 10:
                         i=10;
@@ -91,4 +94,6 @@ public class Main {
         }
 
     }
+
+
 }
