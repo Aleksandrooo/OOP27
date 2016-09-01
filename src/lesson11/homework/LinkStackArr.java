@@ -21,9 +21,9 @@ public class LinkStackArr implements Stack {
     @Override
     public Integer pop() {
         if(lastElement ==0){
-            int value = array[0];
-            array[0] = 0;
-            return value;
+//            int value = array[0];
+//            array[0] = 0;
+            return null;
         } else {
             lastElement -=1;
             return array[lastElement];
@@ -33,7 +33,7 @@ public class LinkStackArr implements Stack {
     @Override
     public Integer take() {
         if(lastElement ==0){
-            return array[0];
+            return null;
         } else {
             return array[lastElement - 1];
         }
