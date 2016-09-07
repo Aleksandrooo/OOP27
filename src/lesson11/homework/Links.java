@@ -8,27 +8,33 @@ import java.util.function.Consumer;
 public class Links {
 
     public static void main(String[] args) {
-        LinkStackArr st = new LinkStackArr();
+        LinkStack st = new LinkStack();
+
+
         System.out.println(st.pop());
         System.out.println(st.push(34));
+        System.out.println(st.nd.value);
         System.out.println(st.push(23));
+        System.out.println(st.nd.value);
         System.out.println(st.push(55));
-        System.out.println(st.push(89));
-        System.out.println(st.push(9));
-        System.out.println(st.push(8));
-        System.out.println(st.push(7));
-        System.out.println(st.push(2));
-        System.out.println(st.take());
+        System.out.println(st.nd.value);
+//        System.out.println(st.push(89));
+//        System.out.println(st.push(9));
+//        System.out.println(st.push(8));
+//        System.out.println(st.push(7));
+//        System.out.println(st.push(2));
+      //  st.toString();
+        //System.out.println(st.take());
         System.out.println(st.pop());
         System.out.println(st.pop());
         System.out.println(st.pop());
-        System.out.println(st.pop());
-        System.out.println(st.pop());
-        System.out.println(st.pop());
-
-
-
-        System.out.println(st.take());
+//        System.out.println(st.pop());
+//        System.out.println(st.pop());
+//        System.out.println(st.pop());
+//
+//
+//
+//        System.out.println(st.take());
 
 //        Node n1 = new Node(19);
 //        Node n2 = new Node(10);

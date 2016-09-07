@@ -4,8 +4,14 @@ package lesson11.homework;
  * Created by Admin on 29.08.2016.
  */
 public class LinkStackArr implements Stack {
-    int [] array = new int[5];
+    int maxsize;
+    int [] array; // = new int[5];
     int lastElement =0;
+
+    public LinkStackArr(int maxsize){
+        this.maxsize=maxsize;
+        array = new int[maxsize];
+    }
 
     @Override
     public boolean push(int element) {

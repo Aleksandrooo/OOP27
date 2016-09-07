@@ -1,27 +1,29 @@
 package lesson12;
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 /**
  * Created by Admin on 01.09.2016.
  */
 public class LinkedDeque implements Deque {
+
     private Node first;
     private Node last;
-    private int size = 0;
+    private int size;
 
     @Override
     public boolean pushFirst(int elem) {
         if(size == 0){
             last = first = new Node(elem);
-//            first.value = elem;
-//            last = first;
-            size++;
         } else {
-            Node nd =new Node (elem);
-
-            first.value = elem;
+            Node nd = new Node(elem);
+            nd.prev = first;
+            first.next = nd;
+            first = nd;
         }
-
-        return false;
+        size++;
+        return true;
     }
 
     @Override
@@ -31,7 +33,16 @@ public class LinkedDeque implements Deque {
 
     @Override
     public Integer popFirst() {
-        return null;
+        if(size == 0) return null;
+        int tmp = first.value;
+        if(first == last){
+            first = last = null;
+        } else {
+            first = first.prev;
+            first.next = null;
+        }
+        size--;
+        return tmp;
     }
 
     @Override
@@ -51,7 +62,7 @@ public class LinkedDeque implements Deque {
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -59,23 +70,83 @@ public class LinkedDeque implements Deque {
         return false;
     }
 
-    //inner class вложение
-//    class Node{
+
+    public void forEachFirst(Consumer<Integer> cons){
+        cons.accept(first.value);
+    }
+
+    public void forEachLast(Consumer<Integer> cons){
+
+    }
+
+    //*
+    public Deque map(Function<Integer, Integer> mapper){
+        return null;
+    }
+
+
+
+    @Override
+    public String toString() {
+        if(size == 0)return "[]";
+
+        StringBuilder sb = new StringBuilder("[");
+
+        for(Node nd = first; nd != null; nd = nd.prev){
+            sb.append(nd.value);
+            if(nd.prev != null){
+                sb.append(", ");
+            } else {
+                sb.append("]");
+            }
+        }
+        return sb.toString();
+    }
+
+
+    public static void main(String[] args) {
+        LinkedDeque deque = new LinkedDeque();
+
+        deque.pushFirst(3);
+        deque.pushFirst(1);
+        deque.pushFirst(5);
+        deque.pushFirst(7);
+        deque.pushFirst(2);
+        deque.pushFirst(4);
+
+        Deque result = deque.map((e) -> (int)Math.pow(e, 2));
+
+
+
+        deque.forEachFirst(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.println(integer);
+            }
+        });
+
+
+    }
+
+    //inner class
+//    class Node2{
 //
 //    }
-    //nested class внутрение
-    private  static class Node{
+
+    //nested class
+    private static class Node{
         Node next;
         Node prev;
         int value;
 
-        public Node(Node next, Node prev, int value){
-            this.next = next;
-            this.prev = prev;
-            this.value= value;
-
+        public Node(int value) {
+            this.value = value;
         }
 
+        public Node(Node next, Node prev, int value) {
+            this.next = next;
+            this.prev = prev;
+            this.value = value;
+        }
     }
-
 }
