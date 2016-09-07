@@ -4,12 +4,13 @@ package lesson11.homework;
  * Created by Admin on 24.08.2016.
  */
 public class LinkStack implements Stack {
-    Node n1;
+	int value;
+    Node next;
 
 
     @Override
     public boolean push(int element) {
-        n1.value = element;
+        value = element;
 
         return false;
     }
